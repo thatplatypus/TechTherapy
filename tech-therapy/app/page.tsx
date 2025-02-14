@@ -137,7 +137,7 @@ export default function Home() {
 
   const handleTechSubmit = async (tech: string) => {
     if (!mode) return;
-    await complete({ tech, mode });
+    await complete(JSON.stringify({ tech, mode }));
   };
 
   const handleRestart = () => {

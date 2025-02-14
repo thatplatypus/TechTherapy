@@ -2,7 +2,8 @@ import { streamText } from 'ai';
 import { openai } from '@ai-sdk/openai';
 
 export async function POST(req: Request) {
-  const { prompt: { tech, mode } } = await req.json();
+  const body = await req.json();
+  const { tech, mode } = JSON.parse(body.prompt);
 
   const prompts = {
     affirmations: `Create 3-5 short, powerful affirmations for a developer frustrated with ${tech}. 
