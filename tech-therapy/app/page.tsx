@@ -48,10 +48,10 @@ const ResponseView = ({ mode, response, onRestart }: {
   response: string; 
   onRestart: () => void 
 }) => (
-  <div className="relative w-full max-w-md">
+  <div className="relative w-full max-w-2xl px-4">
     <Button
       variant="ghost"
-      className="absolute -top-16 left-0 text-white/70 hover:text-white"
+      className="fixed top-8 left-8 text-white/70 hover:text-white z-10"
       onClick={onRestart}
     >
       ← Start Over
@@ -63,7 +63,7 @@ const ResponseView = ({ mode, response, onRestart }: {
       className="w-full text-center"
     >
       <motion.div
-        className={`text-2xl font-bold p-8 rounded-lg bg-gradient-to-br ${gradients[mode]} bg-opacity-10`}
+        className={`text-xl md:text-2xl font-bold p-8 rounded-lg bg-gradient-to-br ${gradients[mode]} bg-opacity-10 min-h-[200px] flex flex-col justify-center`}
       >
         {response.split('\n').map((line, i) => (
           <motion.div
@@ -74,7 +74,7 @@ const ResponseView = ({ mode, response, onRestart }: {
               delay: i * 2,
               duration: 0.5 
             }}
-            className="mb-4 last:mb-0"
+            className="mb-6 last:mb-0"
           >
             {line.split('').map((char, j) => (
               <motion.span
@@ -147,7 +147,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 to-slate-800 text-white">
-      <main className="container mx-auto min-h-screen flex flex-col items-center justify-center p-4">
+      <main className="container mx-auto min-h-screen flex flex-col items-center justify-center py-20 px-4">
         <AnimatePresence mode="wait">
           {!mode ? (
             <motion.div
