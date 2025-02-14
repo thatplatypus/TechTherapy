@@ -127,7 +127,7 @@ const TechInput = ({ mode, onSubmit }: { mode: TherapyMode; onSubmit: (tech: str
 
 export default function Home() {
   const [mode, setMode] = useState<TherapyMode | null>(null);
-  const { complete, completion, isLoading, setCompletion } = useCompletion({
+  const { complete, completion, setCompletion } = useCompletion({
     api: '/api/therapy',
   });
 
